@@ -1,0 +1,11 @@
+Django
+whitenoise
+pyTelegramBotAPI
+
+
+
+
+
+
+
+

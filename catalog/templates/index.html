@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+    <a href="/accounts/logout">Выйти</a>
+    <a href='/cart'>Корзина</a>
+{% else %}
+    <a href="/accounts/login">Войти</a>
+{% endif %}
+
+<form method="get">
+    <input type="text" name="search" placeholder="поиск продукта">
+    <button>Поиск</button>
+</form>
+<hr>
+
+
+категории: <br>
+{% for i in all_categories %}
+    <a href="/category/{{ i.id }}">{{ i.name }}</a><br>
+
+{% endfor %}
+<hr>
+
+товары: <br>
+{% for i in all_products %}
+<!--динамическая генерация ссылки на товар:-->
+    <a href="/product/{{ i.name }}/{{i.id}}">{{ i.name }}</a><br>
+{% endfor %}
+
+
+</body>
+</html>
